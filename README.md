@@ -12,14 +12,18 @@
 「格子」们向你提出的问题并不是固定的。长按任意格子，或者点击扳手图标，进入格子设计模式。我们可以选择自由输入问题，或者在内置的（内容十分丰富的）问题库中挑选问题。点击魔杖图标可以随机更换一批问题。
 
 格子的自定义程度非常高，比如我们可以向曾子学习，把问题设置成下面右图中这样：
-![](https://raw.githubusercontent.com/studiotang/GridDiary/master/screenshots/griddiary_desc_01.png)
-![](https://raw.githubusercontent.com/studiotang/GridDiary/master/screenshots/griddiary_desc_02.png)
+
+![](https://raw.githubusercontent.com/studiotang/GridDiary/master/screenshots/griddiary_desc_01.jpg)
+</br>
+![](https://raw.githubusercontent.com/studiotang/GridDiary/master/screenshots/griddiary_desc_02.jpg)
 
 整体向下滑动，或点击日历图标，进入日历模式。如果在某一天写过日志，那么在这一天的日期下方会有圆点标记。点击日期后，即可回到格子模式，阅读过去回答过的格子。
 
 但是在格子模式下阅读已完成的日记并不是最佳选择。我们可以通过整体上滑或点击书签图标，进入阅读模式。点击分享按钮，可以将这篇日记输出为长图片或 PDF 格式的文件，方便分享与保存。也可以选择全文保存到印象笔记，或者以 Markdown 格式输出到其他的笔记应用中。
-![](https://raw.githubusercontent.com/studiotang/GridDiary/master/screenshots/griddiary_desc_03.png)
-![](https://raw.githubusercontent.com/studiotang/GridDiary/master/screenshots/griddiary_desc_04.png)
+
+![](https://raw.githubusercontent.com/studiotang/GridDiary/master/screenshots/griddiary_desc_03.jpg)
+</br>
+![](https://raw.githubusercontent.com/studiotang/GridDiary/master/screenshots/griddiary_desc_04.jpg)
      
 ### 该软件与同类比较？
 与其他的日记和笔记类应用相比，「格志」的优越之处在于它的引导性。
