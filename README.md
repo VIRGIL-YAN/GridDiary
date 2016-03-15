@@ -50,6 +50,8 @@
 * 云端输入
 * 多设备同步
 
-### 测试
+### 使用开源项目
+* [liteorm](https://github.com/litesuits/android-lite-orm)
+* [meterial-calendar](https://github.com/prolificinteractive/material-calendarview)
 
 
