@@ -52,6 +52,7 @@
 
 ### 使用开源项目
 * [liteorm](https://github.com/litesuits/android-lite-orm)
+* [ormlite](http://ormlite.com)
 * [meterial-calendar](https://github.com/prolificinteractive/material-calendarview)
 
 

@@ -35,9 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private void initListView() {
         ListView listView = (ListView) findViewById(R.id.lv_main);
         listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-                new String[]{
-                "日历", "数据库"
-        }));
+                new String[]{"日历", "数据库"
+                }));
     }
 
 
