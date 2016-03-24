@@ -50,6 +50,7 @@
 * 支持导出到印象笔记和Dropbox
 * 云端输入
 * 多设备同步
+* MD风格
 
 ### 使用开源项目
 * [liteorm](https://github.com/litesuits/android-lite-orm)
