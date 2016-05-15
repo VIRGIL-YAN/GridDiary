@@ -69,13 +69,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+        Intent intent = null;
         switch (position){
             case 0:
-                Intent intent = new Intent(MainActivity.this,TestCalendarActivity.class);
+                intent = new Intent(MainActivity.this,TestCalendarActivity.class);
                 startActivity(intent);
                 break;
 
             case 1:
+                intent = new Intent(MainActivity.this,TestOrmActivity.class);
+                startActivity(intent);
+                break;
+
+            default:
                 break;
         }
     }

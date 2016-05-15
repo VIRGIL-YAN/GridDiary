@@ -20,6 +20,9 @@
         </activity>
 
         <activity android:name=".view.activity.TestCalendarActivity"></activity>
+
+        <activity android:name=".view.activity.TestOrmActivity"></activity>
+
     </application>
 
 </manifest>

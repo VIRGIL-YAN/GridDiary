@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion '23.0.1'
 
     defaultConfig {
         applicationId "com.free.diary"
@@ -25,5 +25,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.android.support:design:23.0.1'
 
-    compile 'com.prolificinteractive:material-calendarview:1.2.0'
+    compile 'com.prolificinteractive:material-calendarview:1.2.1'
 }
