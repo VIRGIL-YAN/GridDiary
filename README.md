@@ -52,11 +52,6 @@
 * 多设备同步
 * MD风格
 
-### 使用开源项目
-* [liteorm](https://github.com/litesuits/android-lite-orm)
-* [ormlite](http://ormlite.com)
-* [meterial-calendar](https://github.com/prolificinteractive/material-calendarview)
-
 ### 使用到的技术
 >[MVP]()`架构`<br/>
 >[SupportDesignLibrary](http://androiddoc.qiniudn.com/tools/support-library/features.html#design)`风格`<br/>
@@ -68,7 +63,8 @@
 >[SystemBarTint](https://github.com/jgilfelt/SystemBarTint)`状态栏渲染`<br/>
 >[SmartTabLayout](https://github.com/ogaclejapan/SmartTabLayout)`标签页`<br/>
 >[Glide](https://github.com/bumptech/glide)`图片加载`<br/>
->[Volley](https://github.com/mcxiaoke/android-volley)`网络请求`<br/>
->[GreenDao](https://github.com/greenrobot/greenDAO)`数据库`<br/>
+>[Okhttp](https://github.com/square/okhttp)`网络请求`<br/>
+>[OrmLite](http://ormlite.com)`数据库`<br/>
+>[MeterialCalendar](https://github.com/prolificinteractive/material-calendarview)`日历`<br/>
 
 

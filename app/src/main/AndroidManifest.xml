@@ -21,7 +21,8 @@
 
         <activity android:name=".view.activity.TestCalendarActivity"></activity>
 
-        <activity android:name=".view.activity.TestOrmActivity"></activity>
+        <activity android:name=".view.activity.TestOrmActivity"
+                  android:label="数据库"></activity>
 
     </application>
 
