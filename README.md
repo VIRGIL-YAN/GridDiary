@@ -53,18 +53,20 @@
 * MD风格
 
 ### 使用到的技术
->[MVP]()`架构`<br/>
+>[MVP]()`架构(有点臃肿，不再使用)`<br/>
 >[SupportDesignLibrary](http://androiddoc.qiniudn.com/tools/support-library/features.html#design)`风格`<br/>
 >[RecyclerView]()`列表`<br/>
 >[CardView]()`布局`<br/>
 >[RxAndroid](https://github.com/ReactiveX/RxAndroid)`特性`<br/>
->[RetroLambda](https://github.com/evant/gradle-retrolambda)`表达式`<br/>
 >[ButterKnife](https://github.com/JakeWharton/butterknife)`注入`<br/>
 >[SystemBarTint](https://github.com/jgilfelt/SystemBarTint)`状态栏渲染`<br/>
+>[OrmLite](http://ormlite.com)`数据库`<br/>
+>[MeterialCalendar](https://github.com/prolificinteractive/material-calendarview)`日历`<br/>
+>[Dagger2]()`Dagger2`<br/>
+
+>[RetroLambda](https://github.com/evant/gradle-retrolambda)`表达式`<br/>
 >[SmartTabLayout](https://github.com/ogaclejapan/SmartTabLayout)`标签页`<br/>
 >[Glide](https://github.com/bumptech/glide)`图片加载`<br/>
 >[Okhttp](https://github.com/square/okhttp)`网络请求`<br/>
->[OrmLite](http://ormlite.com)`数据库`<br/>
->[MeterialCalendar](https://github.com/prolificinteractive/material-calendarview)`日历`<br/>
 
 

@@ -1,4 +1,4 @@
-package com.free.diary.view.activity;
+package com.free.diary.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;

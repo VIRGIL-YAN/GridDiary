@@ -1,9 +1,9 @@
-package com.free.diary.view.activity;
+package com.free.diary.ui.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.HandlerThread;
 import android.os.Looper;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,12 +12,13 @@ import android.widget.ListView;
 
 import com.free.diary.R;
 import com.free.diary.model.DatabaseHelper;
-import com.free.diary.model.User;
+import com.free.diary.model.bean.User;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import butterknife.ButterKnife;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -28,16 +29,16 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 /**
  * Created by tangqi on 16/5/15.
  */
-public class TestOrmActivity extends Activity implements AdapterView.OnItemClickListener {
+public class TestOrmActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private static final String TAG = "Test";
-
     private Looper mBackgroundLooper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_activity_orm);
+        ButterKnife.bind(this);
 
         ListView listView = (ListView) findViewById(R.id.lv_main);
         listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
@@ -48,6 +49,8 @@ public class TestOrmActivity extends Activity implements AdapterView.OnItemClick
         BackgroundThread backgroundThread = new BackgroundThread();
         backgroundThread.start();
         mBackgroundLooper = backgroundThread.getLooper();
+
+
     }
 
     public void testAddUser() {
@@ -140,10 +143,9 @@ public class TestOrmActivity extends Activity implements AdapterView.OnItemClick
                         Log.e(TAG, "onNext(" + s + ")");
                     }
                 });
-
     }
 
-    static Observable<String> sampleObservable(){
+    static Observable<String> sampleObservable() {
         return Observable.defer(new Func0<Observable<String>>() {
             @Override
             public Observable<String> call() {

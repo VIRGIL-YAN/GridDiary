@@ -1,14 +1,14 @@
-package com.free.diary.view.activity;
+package com.free.diary.ui.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.free.diary.R;
 
 /**
  * Created by tangqi on 16/3/20.
  */
-public class TestCalendarActivity extends Activity{
+public class TestCalendarActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,4 +1,4 @@
-package com.free.diary.model;
+package com.free.diary.model.bean;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -9,19 +9,26 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "test_user")
 public class User {
 
+    @DatabaseField(generatedId = true)
+    private int id;
+
+    @DatabaseField(columnName = "name")
+    private String name;
+
+    @DatabaseField(columnName = "desc")
+    private String desc;
+
+    @DatabaseField(columnName = "age")
+    private String age;
+
     public User(){
 
     }
 
     public User(String name, String desc){
         this.name = name;
+        this.desc = desc;
     }
-
-    @DatabaseField(generatedId = true)
-    private int id;
-
-    @DatabaseField(columnName = "name")
-    private String name;
 
     public int getId() {
         return id;
@@ -44,6 +51,8 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", desc='" + desc + '\'' +
+//                ", age='" + age + '\'' +
                 '}';
     }
 }
