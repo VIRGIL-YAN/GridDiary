@@ -1,4 +1,4 @@
-package com.free.diary.ui.activity;
+package com.free.diary.support.test;
 
 import android.os.Bundle;
 import android.os.HandlerThread;
@@ -11,8 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.free.diary.R;
-import com.free.diary.model.DatabaseHelper;
-import com.free.diary.model.bean.User;
+import com.free.diary.data.DatabaseHelper;
 
 import java.sql.SQLException;
 import java.util.List;

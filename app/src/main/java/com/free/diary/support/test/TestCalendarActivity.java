@@ -1,4 +1,4 @@
-package com.free.diary.ui.activity;
+package com.free.diary.support.test;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

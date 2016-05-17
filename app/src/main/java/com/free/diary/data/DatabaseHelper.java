@@ -1,9 +1,9 @@
-package com.free.diary.model;
+package com.free.diary.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.free.diary.model.bean.User;
+import com.free.diary.support.test.User;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;

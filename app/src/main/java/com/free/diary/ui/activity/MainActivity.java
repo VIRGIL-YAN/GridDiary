@@ -14,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.free.diary.R;
+import com.free.diary.support.test.TestCalendarActivity;
+import com.free.diary.support.test.TestOrmActivity;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
