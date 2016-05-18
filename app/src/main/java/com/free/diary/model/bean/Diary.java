@@ -16,6 +16,7 @@ public class Diary {
     @DatabaseField(generatedId = true)
     private int id;
 
+    // 创建日期
     @DatabaseField(columnName = "date")
     private long date;
 
@@ -31,9 +32,12 @@ public class Diary {
     @DatabaseField(columnName = "title")
     private String title;
 
-    // 一个日记对应多个格子
+    // 一篇日记对应多个格子
     @ForeignCollectionField(eager = false)
     private ForeignCollection<Grid> grids;
+
+    @DatabaseField(columnName = "reserve")
+    private String reserve;
 
     public int getId() {
         return id;
@@ -83,12 +87,18 @@ public class Diary {
         return modifyDate;
     }
 
-    public ForeignCollection<Grid> getGrids() {
-        return grids;
+    public ArrayList<Grid> getGrids() {
+        ArrayList<Grid> list = new ArrayList<>();
+        list.addAll(grids);
+        return list;
     }
 
-    public void setGrids(ForeignCollection<Grid> grids) {
-        this.grids = grids;
+    public String getReserve() {
+        return reserve;
+    }
+
+    public void setReserve(String reserve) {
+        this.reserve = reserve;
     }
 
     @Override
@@ -104,8 +114,9 @@ public class Diary {
                 ", weather='" + weather + '\'' +
                 ", mood='" + mood + '\'' +
                 ", title='" + title + '\'' +
-                ", grids=" + list.toString() +
+                ", grids=" + getGrids() +
                 '}';
 
     }
+
 }

@@ -20,6 +20,7 @@ import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.ButterKnife;
@@ -104,7 +105,7 @@ public class TestOrmActivity extends AppCompatActivity implements AdapterView.On
                 Diary diary = list.get(0);
 
                 Grid grid = new Grid();
-//                grid.setContent(new Random().nextInt()+"");
+                grid.setContent(new Random().nextInt(10) + "");
                 grid.setDiary(diary);
                 mGridDao.insert(grid);
 
@@ -120,13 +121,6 @@ public class TestOrmActivity extends AppCompatActivity implements AdapterView.On
     private void printDiary() {
         List<Diary> list = mDiaryDao.queryAll();
         Log.i("Test", "diary:" + list.toString());
-//        if(list != null){
-//            for (int i = 0; i < list.size(); i++){
-//                Log.i("Test", "grids["+i+"]"+":"+list.get(i).getGrids().toString());
-//            }
-//        }
-        List<Grid> grids = mGridDao.queryAll();
-        Log.i("Test", "grids:" + grids.toString());
     }
 
     public void addUser() {
