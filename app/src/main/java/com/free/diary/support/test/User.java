@@ -52,7 +52,7 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", desc='" + desc + '\'' +
-//                ", age='" + age + '\'' +
+                ", age='" + age + '\'' +
                 '}';
     }
 }

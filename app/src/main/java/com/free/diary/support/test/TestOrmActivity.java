@@ -11,7 +11,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.free.diary.R;
-import com.free.diary.data.DatabaseHelper;
+import com.free.diary.model.bean.Diary;
+import com.free.diary.model.bean.Grid;
+import com.free.diary.model.dao.DiaryDao;
+import com.free.diary.model.dao.GridDao;
+import com.free.diary.model.dao.base.DatabaseHelper;
+import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -32,6 +37,8 @@ public class TestOrmActivity extends AppCompatActivity implements AdapterView.On
 
     private static final String TAG = "Test";
     private Looper mBackgroundLooper;
+    private DiaryDao mDiaryDao;
+    private GridDao mGridDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +48,8 @@ public class TestOrmActivity extends AppCompatActivity implements AdapterView.On
 
         ListView listView = (ListView) findViewById(R.id.lv_main);
         listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
-                new String[]{"add", "delete", "update", "RxAndroid"
+                new String[]{"AddUser", "DeleteUser", "UpdateUser", "RxAndroid", "AddDiary",
+                        "UpdateDiary"
                 }));
         listView.setOnItemClickListener(this);
 
@@ -49,16 +57,86 @@ public class TestOrmActivity extends AppCompatActivity implements AdapterView.On
         backgroundThread.start();
         mBackgroundLooper = backgroundThread.getLooper();
 
-
+        mDiaryDao = new DiaryDao(TestOrmActivity.this);
+        mGridDao = new GridDao(TestOrmActivity.this);
     }
 
-    public void testAddUser() {
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        switch (i) {
+            case 0:
+                addUser();
+                break;
+
+            case 1:
+                deleteUser();
+                break;
+
+            case 2:
+                updateUser();
+                break;
+
+            case 3:
+                doRxAndroid();
+                break;
+
+            case 4:
+                addDiary();
+                break;
+
+            case 5:
+                updateDiary();
+                break;
+        }
+    }
+
+    private void addDiary() {
+        Diary diary = new Diary();
+        mDiaryDao.insert(diary);
+
+        printDiary();
+    }
+
+    private void updateDiary() {
+        List<Diary> list = mDiaryDao.queryAll();
+        if (list != null) {
+            for (int i = 0; i < list.size(); i++) {
+                Diary diary = list.get(0);
+
+                Grid grid = new Grid();
+//                grid.setContent(new Random().nextInt()+"");
+                grid.setDiary(diary);
+                mGridDao.insert(grid);
+
+                diary.getGrids().add(grid);
+                mDiaryDao.update(diary);
+                break;
+            }
+        }
+
+        printDiary();
+    }
+
+    private void printDiary() {
+        List<Diary> list = mDiaryDao.queryAll();
+        Log.i("Test", "diary:" + list.toString());
+//        if(list != null){
+//            for (int i = 0; i < list.size(); i++){
+//                Log.i("Test", "grids["+i+"]"+":"+list.get(i).getGrids().toString());
+//            }
+//        }
+        List<Grid> grids = mGridDao.queryAll();
+        Log.i("Test", "grids:" + grids.toString());
+    }
+
+    public void addUser() {
         User u1 = new User("zhy", "2B青年");
         DatabaseHelper helper = DatabaseHelper.getHelper(TestOrmActivity.this);
         try {
-            helper.getUserDao().create(u1);
+            Dao dao = helper.getDao(User.class);
+            dao.create(u1);
             u1 = new User("zhy-android", "2B青年");
-            helper.getUserDao().create(u1);
+            dao.create(u1);
 
             testList();
 
@@ -67,22 +145,22 @@ public class TestOrmActivity extends AppCompatActivity implements AdapterView.On
         }
     }
 
-    public void testDeleteUser() {
+    public void deleteUser() {
         DatabaseHelper helper = DatabaseHelper.getHelper(TestOrmActivity.this);
         try {
-            helper.getUserDao().deleteById(2);
+            helper.getDao(User.class).deleteById(2);
             testList();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void testUpdateUser() {
+    public void updateUser() {
         DatabaseHelper helper = DatabaseHelper.getHelper(TestOrmActivity.this);
         try {
             User u1 = new User("zhy-android", "2B青年");
             u1.setId(2);
-            helper.getUserDao().update(u1);
+            helper.getDao(User.class).update(u1);
 
             testList();
 
@@ -94,35 +172,14 @@ public class TestOrmActivity extends AppCompatActivity implements AdapterView.On
     public void testList() {
         DatabaseHelper helper = DatabaseHelper.getHelper(TestOrmActivity.this);
         try {
-            List<User> users = helper.getUserDao().queryForAll();
+            List<User> users = helper.getDao(User.class).queryForAll();
             Log.e("Test", "size:" + users.size() + " -" + users.toString());
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        switch (i) {
-            case 0:
-                testAddUser();
-                break;
-
-            case 1:
-                testDeleteUser();
-                break;
-
-            case 2:
-                testUpdateUser();
-                break;
-            case 3:
-                testRxAndroid();
-                break;
-        }
-    }
-
-    private void testRxAndroid() {
+    private void doRxAndroid() {
         sampleObservable()
                 .subscribeOn(AndroidSchedulers.from(mBackgroundLooper))
                 .observeOn(AndroidSchedulers.mainThread())

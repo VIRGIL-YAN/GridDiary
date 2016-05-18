@@ -1,7 +1,111 @@
 package com.free.diary.model.bean;
 
+import com.j256.ormlite.dao.ForeignCollection;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
+import com.j256.ormlite.table.DatabaseTable;
+
+import java.util.ArrayList;
+
 /**
  * Created by tangqi on 16/5/17.
  */
+@DatabaseTable(tableName = "diary")
 public class Diary {
+
+    @DatabaseField(generatedId = true)
+    private int id;
+
+    @DatabaseField(columnName = "date")
+    private long date;
+
+    @DatabaseField(columnName = "modifyDate")
+    private long modifyDate;
+
+    @DatabaseField(columnName = "weather")
+    private String weather;
+
+    @DatabaseField(columnName = "mood")
+    private String mood;
+
+    @DatabaseField(columnName = "title")
+    private String title;
+
+    // 一个日记对应多个格子
+    @ForeignCollectionField(eager = false)
+    private ForeignCollection<Grid> grids;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public long getDate() {
+        return date;
+    }
+
+    public void setDate(long date) {
+        this.date = date;
+    }
+
+    public String getWeather() {
+        return weather;
+    }
+
+    public void setWeather(String weather) {
+        this.weather = weather;
+    }
+
+    public String getMood() {
+        return mood;
+    }
+
+    public void setMood(String mood) {
+        this.mood = mood;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setModifyDate(long modifyDate) {
+        this.modifyDate = modifyDate;
+    }
+
+    public long getModifyDate() {
+        return modifyDate;
+    }
+
+    public ForeignCollection<Grid> getGrids() {
+        return grids;
+    }
+
+    public void setGrids(ForeignCollection<Grid> grids) {
+        this.grids = grids;
+    }
+
+    @Override
+    public String toString() {
+
+        ArrayList<Grid> list = new ArrayList<>();
+        list.addAll(grids);
+
+        return "Diary{" +
+                "id=" + id +
+                ", date=" + date +
+                ", modifyDate=" + modifyDate +
+                ", weather='" + weather + '\'' +
+                ", mood='" + mood + '\'' +
+                ", title='" + title + '\'' +
+                ", grids=" + list.toString() +
+                '}';
+
+    }
 }

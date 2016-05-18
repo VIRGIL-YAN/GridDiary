@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.free.diary.data.DatabaseHelper;
+import com.free.diary.model.dao.base.DatabaseHelper;
 
 import java.io.File;
 
