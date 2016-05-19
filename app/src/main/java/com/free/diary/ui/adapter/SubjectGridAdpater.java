@@ -23,7 +23,7 @@ public class SubjectGridAdpater extends BaseAbstractAdapter<Subject>{
         Holder holder = null;
         if(convertView == null){
             holder = new Holder();
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.girditem_subject, null);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.griditem_subject, null);
             holder.tvSubject = (TextView) convertView.findViewById(R.id.tv_subject_grid);
             convertView.setTag(holder);
         }else {

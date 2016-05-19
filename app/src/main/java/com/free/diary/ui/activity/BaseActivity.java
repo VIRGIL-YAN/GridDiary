@@ -103,7 +103,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
         // set a custom navigation bar resource
         // mSystemBarTintManager.setNavigationBarTintResource(R.drawable.ic_launcher);
         // set a custom status bar drawable
-//        mSystemBarTintManager.setStatusBarTintResource(R.drawable.colorPrimary);
+        // mSystemBarTintManager.setStatusBarTintResource(R.drawable.colorPrimary);
     }
 
     @TargetApi(19)

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <TextView
+    <com.free.diary.ui.view.DynamicTextView
         android:id="@+id/tv_subject_grid"
         android:layout_width="match_parent"
         android:layout_height="150dip"
         android:background="@drawable/selector_bg_white"
         android:padding="@dimen/padding_normal"
-        android:textColorHint="@color/text_gray"/>
+        android:textColorHint="@color/text_gray"
+        app:ratio="0.75"/>
 </LinearLayout>
