@@ -1,4 +1,35 @@
 <resources>
     <string name="app_name">格志日记</string>
     <string name="action_settings">Settings</string>
+
+    <!--问题库-->
+    <string name="question_item_summary"> 今天过得怎么样？</string>
+    <string name="question_item_happy"> 今天最开心的事是什么？</string>
+    <string name="question_item_think"> 今天的感想是什么？</string>
+    <string name="question_item_rest"> 今天作息正常吗？</string>
+    <string name="question_item_eat"> 今天我吃了什么？</string>
+    <string name="question_item_new_things"> 今天发生了什么新鲜事？</string>
+    <string name="question_item_complete"> 今天我完成了什么？</string>
+    <string name="question_item_book"> 今天我读了什么书？</string>
+    <string name="question_item_music"> 今天听了什么音乐？</string>
+    <string name="question_item_exercise"> 今天锻炼身体了吗？</string>
+    <string name="question_item_family"> 今天为家人做了哪些事？</string>
+    <string name="question_item_thanks"> 今天应该感谢什么？</string>
+    <string name="question_item_tomorrow_better"> 我让明天更美好了吗？</string>
+    <string name="question_item_cost"> 今天花了多少钱？</string>
+    <string-array name="question_list">
+        <item>@string/question_item_summary</item>
+        <item>@string/question_item_happy</item>
+        <item>@string/question_item_rest</item>
+        <item>@string/question_item_eat</item>
+        <item>@string/question_item_new_things</item>
+        <item>@string/question_item_complete</item>
+        <item>@string/question_item_book</item>
+        <item>@string/question_item_music</item>
+        <item>@string/question_item_exercise</item>
+        <item>@string/question_item_family</item>
+        <item>@string/question_item_thanks</item>
+        <item>@string/question_item_tomorrow_better</item>
+        <item>@string/question_item_cost</item>
+    </string-array>
 </resources>

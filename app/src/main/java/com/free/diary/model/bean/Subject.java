@@ -53,4 +53,14 @@ public class Subject {
     public void setReserve(String reserve) {
         this.reserve = reserve;
     }
+
+    @Override
+    public String toString() {
+        return "Subject{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", question='" + question + '\'' +
+                ", reserve='" + reserve + '\'' +
+                '}';
+    }
 }

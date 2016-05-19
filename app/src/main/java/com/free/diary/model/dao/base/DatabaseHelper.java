@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.free.diary.model.bean.Diary;
 import com.free.diary.model.bean.Grid;
+import com.free.diary.model.bean.Subject;
 import com.free.diary.support.test.User;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
@@ -21,8 +22,8 @@ import java.util.Map;
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
 
-    public static final String DB_NAME = "test.db";
-    public static final int DB_VERSION = 5;
+    public static final String DB_NAME = "grid_diary.db";
+    public static final int DB_VERSION = 6;
     private static DatabaseHelper mInstance;
     private Map<String, Dao> mDaoMaps = new HashMap<>();
 
@@ -53,6 +54,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, User.class);
             TableUtils.createTable(connectionSource, Diary.class);
             TableUtils.createTable(connectionSource, Grid.class);
+            TableUtils.createTable(connectionSource, Subject.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -65,6 +67,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.dropTable(connectionSource, User.class, true);
             TableUtils.dropTable(connectionSource, Diary.class, true);
             TableUtils.dropTable(connectionSource, Grid.class, true);
+            TableUtils.dropTable(connectionSource, Subject.class, true);
 
             onCreate(sqLiteDatabase, connectionSource);
         } catch (SQLException e) {

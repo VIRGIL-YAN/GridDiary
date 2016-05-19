@@ -13,9 +13,11 @@ import android.widget.ListView;
 import com.free.diary.R;
 import com.free.diary.model.bean.Diary;
 import com.free.diary.model.bean.Grid;
+import com.free.diary.model.bean.Subject;
 import com.free.diary.model.dao.DiaryDao;
 import com.free.diary.model.dao.GridDao;
 import com.free.diary.model.dao.base.DatabaseHelper;
+import com.free.diary.model.dao.base.SubjectDao;
 import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
@@ -41,6 +43,7 @@ public class TestOrmActivity extends AppCompatActivity implements AdapterView.On
     private Looper mBackgroundLooper;
     private DiaryDao mDiaryDao;
     private GridDao mGridDao;
+    private SubjectDao mSubjectDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +54,7 @@ public class TestOrmActivity extends AppCompatActivity implements AdapterView.On
         ListView listView = (ListView) findViewById(R.id.lv_main);
         listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
                 new String[]{"AddUser", "DeleteUser", "UpdateUser", "RxAndroid", "AddDiary",
-                        "UpdateDiary"
+                        "UpdateDiary", "QuerySubject"
                 }));
         listView.setOnItemClickListener(this);
 
@@ -61,6 +64,7 @@ public class TestOrmActivity extends AppCompatActivity implements AdapterView.On
 
         mDiaryDao = new DiaryDao(TestOrmActivity.this);
         mGridDao = new GridDao(TestOrmActivity.this);
+        mSubjectDao = new SubjectDao(TestOrmActivity.this);
     }
 
     @Override
@@ -89,6 +93,17 @@ public class TestOrmActivity extends AppCompatActivity implements AdapterView.On
             case 5:
                 updateDiary();
                 break;
+
+            case 6:
+                querySubject();
+                break;
+        }
+    }
+
+    private void querySubject() {
+        List<Subject> list = mSubjectDao.queryAll();
+        if (list != null) {
+            Log.i("Test", "subject:" + list.toString());
         }
     }
 

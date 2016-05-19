@@ -18,7 +18,7 @@ public class SpfUtils {
     public static final String FILE_NAME = "share_data";
 
     public SpfUtils() {
-		/* cannot be instantiated */
+        /* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 
@@ -77,6 +77,22 @@ public class SpfUtils {
         return null;
     }
 
+    public static void putString(Context context, String key, String value) {
+        put(context, key, value);
+    }
+
+    public static String getString(Context context, String key, String defaultValue) {
+        return (String) get(context, key, defaultValue);
+    }
+
+    public static void putBoolean(Context context, String key, boolean value) {
+        put(context, key, value);
+    }
+
+    public static boolean getBoolean(Context context, String key, boolean defaultValue) {
+        return (boolean) get(context, key, defaultValue);
+    }
+
     /**
      * 移除某个key值已经对应的值
      *
@@ -129,7 +145,6 @@ public class SpfUtils {
      * 创建一个解决SharedPreferencesCompat.apply方法的一个兼容类
      *
      * @author zhy
-     *
      */
     private static class SharedPreferencesCompat {
         private static final Method sApplyMethod = findApplyMethod();
@@ -139,7 +154,7 @@ public class SpfUtils {
          *
          * @return
          */
-        @SuppressWarnings({ "unchecked", "rawtypes" })
+        @SuppressWarnings({"unchecked", "rawtypes"})
         private static Method findApplyMethod() {
             try {
                 Class clz = SharedPreferences.Editor.class;
