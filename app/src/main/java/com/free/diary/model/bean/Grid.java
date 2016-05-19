@@ -57,6 +57,14 @@ public class Grid {
         this.reserve = reserve;
     }
 
+    public Diary getDiary() {
+        return diary;
+    }
+
+    public void setDiary(Diary diary) {
+        this.diary = diary;
+    }
+
     @Override
     public String toString() {
         return "Grid{" +
@@ -65,13 +73,5 @@ public class Grid {
                 ", content='" + content + '\'' +
                 ", reserve='" + reserve + '\'' +
                 '}';
-    }
-
-    public Diary getDiary() {
-        return diary;
-    }
-
-    public void setDiary(Diary diary) {
-        this.diary = diary;
     }
 }

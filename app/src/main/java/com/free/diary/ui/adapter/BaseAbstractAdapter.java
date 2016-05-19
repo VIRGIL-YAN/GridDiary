@@ -36,7 +36,11 @@ public abstract class BaseAbstractAdapter<T> extends BaseAdapter {
      * @return 为空返回true，不为空返回false
      */
     public boolean isEmpty() {
-        return mItemList.isEmpty();
+        if (null != mItemList) {
+            return mItemList.isEmpty();
+        }
+
+        return true;
     }
 
     /**
@@ -45,8 +49,10 @@ public abstract class BaseAbstractAdapter<T> extends BaseAdapter {
      * @param itemList
      */
     public void addItems(List<T> itemList) {
-        this.mItemList.addAll(itemList);
-        notifyDataSetChanged();
+        if (mItemList != null) {
+            this.mItemList.addAll(itemList);
+            notifyDataSetChanged();
+        }
     }
 
     /**
@@ -78,8 +84,10 @@ public abstract class BaseAbstractAdapter<T> extends BaseAdapter {
      * @param position
      */
     public void deleteItem(int position) {
-        mItemList.remove(position);
-        notifyDataSetChanged();
+        if (null != mItemList) {
+            mItemList.remove(position);
+            notifyDataSetChanged();
+        }
     }
 
     @Override

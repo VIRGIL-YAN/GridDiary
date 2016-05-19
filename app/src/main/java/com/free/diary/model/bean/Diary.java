@@ -114,6 +114,7 @@ public class Diary {
                 ", weather='" + weather + '\'' +
                 ", mood='" + mood + '\'' +
                 ", title='" + title + '\'' +
+                ", reserve='" + reserve + '\'' +
                 ", grids=" + getGrids() +
                 '}';
 

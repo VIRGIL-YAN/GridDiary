@@ -8,8 +8,15 @@
         android:id="@+id/tv_main_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         android:gravity="center"
         android:padding="@dimen/activity_horizontal_margin"
-        android:background="@color/colorPrimary"
         android:text="2016年05月19日"/>
+
+    <com.free.diary.ui.view.LineGridView
+        android:id="@+id/grid_main_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@null"
+        android:numColumns="2"/>
 </LinearLayout>
