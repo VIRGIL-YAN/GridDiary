@@ -19,6 +19,7 @@ import com.free.diary.model.dao.base.DatabaseHelper;
 import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -93,7 +94,18 @@ public class TestOrmActivity extends AppCompatActivity implements AdapterView.On
 
     private void addDiary() {
         Diary diary = new Diary();
+
+        List<Grid> grids = new ArrayList<>();
+        for (int i = 0; i < 2; i++) {
+            Grid grid = new Grid();
+            grid.setContent("" + i);
+            grid.setDiary(diary);
+            grids.add(grid);
+        }
+
+        diary.getGrids().addAll(grids);
         mDiaryDao.insert(diary);
+        mGridDao.insert(grids);
 
         printDiary();
     }

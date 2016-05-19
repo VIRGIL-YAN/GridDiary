@@ -89,7 +89,11 @@ public class Diary {
 
     public ArrayList<Grid> getGrids() {
         ArrayList<Grid> list = new ArrayList<>();
-        list.addAll(grids);
+        if (grids != null) {
+            list.addAll(grids);
+            return list;
+        }
+
         return list;
     }
 
@@ -103,10 +107,6 @@ public class Diary {
 
     @Override
     public String toString() {
-
-        ArrayList<Grid> list = new ArrayList<>();
-        list.addAll(grids);
-
         return "Diary{" +
                 "id=" + id +
                 ", date=" + date +

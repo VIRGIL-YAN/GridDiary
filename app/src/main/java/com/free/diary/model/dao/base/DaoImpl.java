@@ -33,8 +33,14 @@ public class DaoImpl<T> implements IDao<T> {
 
     @Override
     public void insert(List<T> list) {
+        if (list == null) {
+            return;
+        }
+
         try {
-            mDao.create(list);
+            for (T t : list) {
+                mDao.create(t);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

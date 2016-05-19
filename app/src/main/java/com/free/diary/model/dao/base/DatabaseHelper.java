@@ -22,12 +22,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
 
     public static final String DB_NAME = "test.db";
-    public static final int DB_VERSION = 3;
+    public static final int DB_VERSION = 5;
     private static DatabaseHelper mInstance;
     private Map<String, Dao> mDaoMaps = new HashMap<>();
 
     private DatabaseHelper(Context context) {
-        super(context, DB_NAME, null, 4);
+        super(context, DB_NAME, null, DB_VERSION);
     }
 
     /**
