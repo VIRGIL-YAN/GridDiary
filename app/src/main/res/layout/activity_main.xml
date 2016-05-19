@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              android:background="@color/white"
+              android:fitsSystemWindows="true"
               android:orientation="vertical">
 
     <TextView
@@ -10,6 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         android:gravity="center"
+        android:textColor="@color/white"
         android:padding="@dimen/activity_horizontal_margin"
         android:text="2016年05月19日"/>
 
@@ -18,5 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:listSelector="@null"
+        android:scrollbars="none"
         android:numColumns="2"/>
 </LinearLayout>
