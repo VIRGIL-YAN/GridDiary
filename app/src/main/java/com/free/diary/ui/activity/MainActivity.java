@@ -2,11 +2,13 @@ package com.free.diary.ui.activity;
 
 import android.content.Intent;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.free.diary.R;
 import com.free.diary.model.bean.Diary;
@@ -18,7 +20,9 @@ import com.free.diary.model.dao.SubjectDao;
 import com.free.diary.support.config.KeyConfig;
 import com.free.diary.support.util.DateUtils;
 import com.free.diary.ui.adapter.SubjectGridAdpater;
+import com.prolificinteractive.materialcalendarview.CalendarDay;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,7 +30,10 @@ import java.util.List;
  */
 public class MainActivity extends BaseActivity implements OnItemClickListener {
 
+    private static final int TIME_DIFF = 2000;
     private static final int REQUEST_CODE_GRID_EDIT = 1000;
+    private long mExitTime;
+    private String mDiaryDate = null;
 
     private TextView mTvMainDate;
     private GridView mGridMainSubject;
@@ -49,8 +56,8 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
 
     @Override
     public void initView() {
-        mTvMainDate = (TextView) findViewById(R.id.tv_main_date);
-        mTvMainDate.setText("2016年05月20日");
+        mTvMainDate = (TextView) findViewById(R.id.tv_title);
+        mTvMainDate.setOnClickListener(this);
 
         mGridAdpater = new SubjectGridAdpater(this);
         mGridMainSubject = (GridView) findViewById(R.id.grid_main_subject);
@@ -60,14 +67,26 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
 
     @Override
     public void afterInitView() {
-        mGridDao = new GridDao(this);
 
-        String currentDate = DateUtils.formatDate(System.currentTimeMillis());
+        String diaryDateStr = null;
+        CalendarDay calendarDay = getIntent().getParcelableExtra(KeyConfig.CALENDAR_DAY);
+
+        if (calendarDay != null) {
+            Date date = calendarDay.getDate();
+            mDiaryDate = DateUtils.formatDate(date);
+            diaryDateStr = DateUtils.formatDateZh(date);
+        } else {
+            mDiaryDate = DateUtils.formatDate(System.currentTimeMillis());
+            diaryDateStr = DateUtils.formatDateZh(System.currentTimeMillis());
+        }
+
+        mTvMainDate.setText(diaryDateStr);
+        mGridDao = new GridDao(this);
         mDiaryDao = new DiaryDao(this);
-        mDiary = mDiaryDao.query(currentDate);
+        mDiary = mDiaryDao.query(mDiaryDate);
         if (mDiary == null) {
             mDiary = new Diary();
-            mDiary.setDate(currentDate);
+            mDiary.setDate(mDiaryDate);
         }
         mGridList = mDiary.getGrids();
 
@@ -80,8 +99,24 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
     }
 
     @Override
-    public void onViewClick(View v) {
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
 
+        afterInitView();
+    }
+
+    @Override
+    public void onViewClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_title:
+                Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
+                startActivity(intent);
+                break;
+
+            default:
+                break;
+        }
     }
 
     @Override
@@ -121,6 +156,7 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
                         mGridDao.insert(grid);
                     }
 
+                    mDiary = mDiaryDao.query(mDiaryDate);
                     mGridList = mDiary.getGrids();
                     mGridAdpater.setGridList(mGridList);
                     queryAll();
@@ -132,5 +168,20 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
     private void queryAll() {
         List<Diary> list = mDiaryDao.queryAll();
         Log.i("Test", "diary:" + list.toString());
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                if (System.currentTimeMillis() - mExitTime > TIME_DIFF) {
+                    Toast.makeText(MainActivity.this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                    mExitTime = System.currentTimeMillis();
+                } else {
+                    System.exit(0);
+                }
+                return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

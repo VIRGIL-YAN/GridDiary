@@ -12,6 +12,7 @@ import android.annotation.SuppressLint;
 public class DateUtils {
 
     public static final String FORMAT_DATE = "yyyy-MM-dd";
+    public static final String FORMAT_DATE_ZH = "yyyy年MM月dd日";
     public static final String FORMAT_ACTIVITY_TIME = "yyyy.MM.dd";
     public static final String FORMAT_LOTTERY_TIME = "MM/dd HH:mm";
 
@@ -22,6 +23,20 @@ public class DateUtils {
 
     public static String formatDate(long time) {
         return format(FORMAT_DATE, time);
+    }
+
+    public static String formatDateZh(long time) {
+        return format(FORMAT_DATE_ZH, time);
+    }
+
+    public static String formatDate(Date date) {
+        SimpleDateFormat format = new SimpleDateFormat(FORMAT_DATE);
+        return format.format(date);
+    }
+
+    public static String formatDateZh(Date date) {
+        SimpleDateFormat format = new SimpleDateFormat(FORMAT_DATE_ZH);
+        return format.format(date);
     }
 
     /**
