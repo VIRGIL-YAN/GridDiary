@@ -74,6 +74,9 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
         SubjectDao subjectDao = new SubjectDao(this);
         List<Subject> subjects = subjectDao.queryAll();
         mGridAdpater.setItems(subjects);
+        mGridAdpater.setGridList(mGridList);
+
+        queryAll();
     }
 
     @Override
@@ -89,7 +92,7 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
         intent.putExtra(KeyConfig.SUBJECT, subject);
         if (mGridList != null) {
             for (Grid grid : mGridList) {
-                if (subject.getQuestion().equalsIgnoreCase(grid.getSubject())) {
+                if (subject.getSubject().equalsIgnoreCase(grid.getSubject())) {
                     intent.putExtra(KeyConfig.GRID, grid);
                     break;
                 }
@@ -118,6 +121,8 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
                         mGridDao.insert(grid);
                     }
 
+                    mGridList = mDiary.getGrids();
+                    mGridAdpater.setGridList(mGridList);
                     queryAll();
                 }
                 break;

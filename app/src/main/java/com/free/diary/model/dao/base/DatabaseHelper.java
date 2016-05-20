@@ -23,7 +23,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
 
     public static final String DB_NAME = "grid_diary.db";
-    public static final int DB_VERSION = 9;
+    public static final int DB_VERSION = 10;
     private static DatabaseHelper mInstance;
     private Map<String, Dao> mDaoMaps = new HashMap<>();
 

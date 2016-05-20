@@ -39,7 +39,7 @@ public class SubjectManager {
         for (String question : questionArray) {
             Subject subject = new Subject();
             subject.setType(Global.SubjectType.APP);
-            subject.setQuestion(question);
+            subject.setSubject(question);
             subjectList.add(subject);
         }
 

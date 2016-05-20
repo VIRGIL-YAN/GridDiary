@@ -8,7 +8,7 @@ import com.j256.ormlite.table.DatabaseTable;
  * Created by tangqi on 16/5/18.
  */
 @DatabaseTable(tableName = "subject")
-public class Subject extends BaseEntity{
+public class Subject extends BaseEntity {
 
     @DatabaseField(generatedId = true)
     private int id;
@@ -16,8 +16,8 @@ public class Subject extends BaseEntity{
     @DatabaseField(columnName = "type")
     private String type;
 
-    @DatabaseField(columnName = "question")
-    private String question;
+    @DatabaseField(columnName = "subject")
+    private String subject;
 
     @DatabaseField(columnName = "reserve")
     private String reserve;
@@ -38,12 +38,12 @@ public class Subject extends BaseEntity{
         this.type = type;
     }
 
-    public String getQuestion() {
-        return question;
+    public String getSubject() {
+        return subject;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setSubject(String question) {
+        this.subject = question;
     }
 
     public String getReserve() {
@@ -59,7 +59,7 @@ public class Subject extends BaseEntity{
         return "Subject{" +
                 "id=" + id +
                 ", type='" + type + '\'' +
-                ", question='" + question + '\'' +
+                ", subject='" + subject + '\'' +
                 ", reserve='" + reserve + '\'' +
                 '}';
     }

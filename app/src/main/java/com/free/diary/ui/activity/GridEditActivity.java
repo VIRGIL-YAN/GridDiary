@@ -37,10 +37,14 @@ public class GridEditActivity extends BaseActivity implements View.OnFocusChange
     @Override
     public void initView() {
         TextView tvTitle = (TextView) findViewById(R.id.tv_grid_title);
-        tvTitle.setText(mSubject.getQuestion());
+        tvTitle.setText(mSubject.getSubject());
 
         mEtContent = (EditText) findViewById(R.id.et_grid_content);
         mEtContent.setOnFocusChangeListener(this);
+        if (mGrid != null) {
+            mEtContent.setText(mGrid.getContent());
+            mEtContent.setSelection(mGrid.getContent().length());
+        }
 
         mIvDelete = (ImageView) findViewById(R.id.iv_delelte);
         mIvDelete.setOnClickListener(this);
@@ -64,7 +68,7 @@ public class GridEditActivity extends BaseActivity implements View.OnFocusChange
                     isAddGrid = true;
                 }
                 mGrid.setContent(mEtContent.getText().toString());
-                mGrid.setSubject(mSubject.getQuestion());
+                mGrid.setSubject(mSubject.getSubject());
 
                 Intent data = new Intent();
                 data.putExtra(KeyConfig.IS_ADD_GRID, isAddGrid);

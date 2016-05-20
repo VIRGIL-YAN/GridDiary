@@ -8,10 +8,16 @@
     <dimen name="title_height">48dp</dimen>
     <dimen name="ling_width">1dp</dimen>
 
+    <!--TextSize-->
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_normal">15sp</dimen>
+    <dimen name="text_large">18sp</dimen>
+
     <!--Padding-->
     <dimen name="padding_small">5dp</dimen>
     <dimen name="padding_normal">10dp</dimen>
     <dimen name="padding_large">15dp</dimen>
+    <dimen name="padding_image">12dp</dimen>
 
     <!--Margin-->
     <dimen name="margin_small">5dp</dimen>
