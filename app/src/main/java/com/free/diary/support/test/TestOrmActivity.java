@@ -17,7 +17,7 @@ import com.free.diary.model.bean.Subject;
 import com.free.diary.model.dao.DiaryDao;
 import com.free.diary.model.dao.GridDao;
 import com.free.diary.model.dao.base.DatabaseHelper;
-import com.free.diary.model.dao.base.SubjectDao;
+import com.free.diary.model.dao.SubjectDao;
 import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;

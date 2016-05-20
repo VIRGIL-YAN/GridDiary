@@ -23,7 +23,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
 
     public static final String DB_NAME = "grid_diary.db";
-    public static final int DB_VERSION = 6;
+    public static final int DB_VERSION = 9;
     private static DatabaseHelper mInstance;
     private Map<String, Dao> mDaoMaps = new HashMap<>();
 
@@ -55,6 +55,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, Diary.class);
             TableUtils.createTable(connectionSource, Grid.class);
             TableUtils.createTable(connectionSource, Subject.class);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

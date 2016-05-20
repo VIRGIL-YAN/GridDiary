@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_delelte"
+            android:layout_width="@dimen/title_height"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:padding="@dimen/padding_large"
+            android:background="@drawable/selector_btn_transparent"
+            android:src="@mipmap/ic_delete"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_grid_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/iv_commit"
+            android:layout_toRightOf="@+id/iv_delelte"
+            android:gravity="center"
+            android:paddingLeft="@dimen/padding_normal"
+            android:paddingRight="@dimen/padding_normal"
+            android:text="@string/app_name"
+            android:textColor="@color/white"/>
+
+        <ImageView
+            android:id="@+id/iv_commit"
+            android:layout_width="@dimen/title_height"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/selector_btn_transparent"
+            android:padding="@dimen/padding_large"
+            android:src="@mipmap/ic_commit"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_grid_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|left"
+        android:padding="@dimen/padding_large"
+        android:textColor="@color/text_black"/>
+
+</LinearLayout>

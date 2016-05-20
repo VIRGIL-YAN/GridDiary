@@ -21,6 +21,9 @@
         </activity>
 
         <activity android:name=".ui.activity.MainActivity"/>
+        <activity
+            android:name=".ui.activity.GridEditActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
 
         <activity
             android:name=".support.test.TestCalendarActivity"

@@ -11,17 +11,17 @@ import java.util.ArrayList;
  * Created by tangqi on 16/5/17.
  */
 @DatabaseTable(tableName = "diary")
-public class Diary {
+public class Diary extends BaseEntity {
 
     @DatabaseField(generatedId = true)
     private int id;
 
     // 创建日期
     @DatabaseField(columnName = "date")
-    private long date;
+    private String date;
 
-    @DatabaseField(columnName = "modifyDate")
-    private long modifyDate;
+    @DatabaseField(columnName = "modifyTime")
+    private long modifyTime;
 
     @DatabaseField(columnName = "weather")
     private String weather;
@@ -47,11 +47,11 @@ public class Diary {
         this.id = id;
     }
 
-    public long getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(long date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -80,11 +80,11 @@ public class Diary {
     }
 
     public void setModifyDate(long modifyDate) {
-        this.modifyDate = modifyDate;
+        this.modifyTime = modifyDate;
     }
 
     public long getModifyDate() {
-        return modifyDate;
+        return modifyTime;
     }
 
     public ArrayList<Grid> getGrids() {
@@ -110,7 +110,7 @@ public class Diary {
         return "Diary{" +
                 "id=" + id +
                 ", date=" + date +
-                ", modifyDate=" + modifyDate +
+                ", modifyTime=" + modifyTime +
                 ", weather='" + weather + '\'' +
                 ", mood='" + mood + '\'' +
                 ", title='" + title + '\'' +

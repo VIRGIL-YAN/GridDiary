@@ -25,7 +25,7 @@ public class DaoImpl<T> implements IDao<T> {
     @Override
     public void insert(T t) {
         try {
-            mDao.createIfNotExists(t);
+            mDao.createOrUpdate(t);
         } catch (SQLException e) {
             e.printStackTrace();
         }

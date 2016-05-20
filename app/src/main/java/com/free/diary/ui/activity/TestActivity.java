@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.free.diary.R;
+import com.free.diary.support.app.SubjectManager;
 import com.free.diary.support.test.TestCalendarActivity;
 import com.free.diary.support.test.TestOrmActivity;
 
@@ -36,6 +37,15 @@ public class TestActivity extends AppCompatActivity implements AdapterView.OnIte
         });
 
         initListView();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                // 初始化问题库
+                SubjectManager subjectManager = new SubjectManager(TestActivity.this);
+                subjectManager.init();
+            }
+        }).start();
     }
 
     private void initListView() {

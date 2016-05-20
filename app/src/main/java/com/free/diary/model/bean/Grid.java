@@ -8,7 +8,7 @@ import com.j256.ormlite.table.DatabaseTable;
  * Created by tangqi on 16/5/18.
  */
 @DatabaseTable(tableName = "grid")
-public class Grid {
+public class Grid extends BaseEntity{
 
     @DatabaseField(generatedId = true)
     private int id;

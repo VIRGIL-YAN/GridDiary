@@ -4,10 +4,8 @@ import android.content.Context;
 
 import com.free.diary.R;
 import com.free.diary.model.bean.Subject;
-import com.free.diary.model.dao.base.SubjectDao;
+import com.free.diary.model.dao.SubjectDao;
 import com.free.diary.support.config.Global;
-import com.free.diary.support.config.SpfConfig;
-import com.free.diary.support.util.SpfUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,14 +21,14 @@ public class SubjectManager {
     }
 
     public void init() {
-        if (!SpfUtils.getBoolean(mContext, SpfConfig.IS_INIT_SUBJECT, false)) {
-            List<Subject> subjectList = getSubjectList();
-            SubjectDao subjectDao = new SubjectDao(mContext);
-            subjectDao.delelteAll();
-            subjectDao.insert(subjectList);
+//        if (!SpfUtils.getBoolean(mContext, SpfConfig.IS_INIT_SUBJECT, false)) {
+        List<Subject> subjectList = getSubjectList();
+        SubjectDao subjectDao = new SubjectDao(mContext);
+        subjectDao.delelteAll();
+        subjectDao.insert(subjectList);
 
-            SpfUtils.putBoolean(mContext, SpfConfig.IS_INIT_SUBJECT, true);
-        }
+//            SpfUtils.putBoolean(mContext, SpfConfig.IS_INIT_SUBJECT, true);
+//        }
 
     }
 
