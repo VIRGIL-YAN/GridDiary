@@ -57,7 +57,8 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
     @Override
     public void initView() {
         mTvMainDate = (TextView) findViewById(R.id.tv_title);
-        mTvMainDate.setOnClickListener(this);
+        findViewById(R.id.iv_right).setOnClickListener(this);
+
 
         mGridAdpater = new SubjectGridAdpater(this);
         mGridMainSubject = (GridView) findViewById(R.id.grid_main_subject);
@@ -109,7 +110,7 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
     @Override
     public void onViewClick(View v) {
         switch (v.getId()) {
-            case R.id.tv_title:
+            case R.id.iv_right:
                 Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
                 startActivity(intent);
                 break;
