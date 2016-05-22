@@ -1,6 +1,3 @@
-/**
- * Copyright © 2015-2020 100msh.com All Rights Reserved
- */
 package com.free.diary.ui.adapter;
 
 import android.content.Context;
