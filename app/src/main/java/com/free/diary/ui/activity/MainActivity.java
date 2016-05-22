@@ -1,6 +1,7 @@
 package com.free.diary.ui.activity;
 
 import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -154,7 +155,11 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
                         mGridDao.insert(grid);
                     } else {
                         mDiaryDao.insert(mDiary);
-                        mGridDao.insert(grid);
+                        if (TextUtils.isEmpty(grid.getContent())) {
+                            mGridDao.delete(grid);
+                        } else {
+                            mGridDao.insert(grid);
+                        }
                     }
 
                     mDiary = mDiaryDao.query(mDiaryDate);

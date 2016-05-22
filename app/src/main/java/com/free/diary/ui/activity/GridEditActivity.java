@@ -1,6 +1,7 @@
 package com.free.diary.ui.activity;
 
 import android.content.Intent;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -67,9 +68,15 @@ public class GridEditActivity extends BaseActivity implements View.OnFocusChange
                     mGrid = new Grid();
                     isAddGrid = true;
                 }
+
+                // 新添加的内容为空的，不处理
+                if (isAddGrid && TextUtils.isEmpty(mEtContent.getText().toString())) {
+                    finish();
+                    return;
+                }
+
                 mGrid.setContent(mEtContent.getText().toString());
                 mGrid.setSubject(mSubject.getSubject());
-
                 Intent data = new Intent();
                 data.putExtra(KeyConfig.IS_ADD_GRID, isAddGrid);
                 data.putExtra(KeyConfig.GRID, mGrid);

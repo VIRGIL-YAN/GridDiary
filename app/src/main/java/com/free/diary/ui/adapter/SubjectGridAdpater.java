@@ -60,6 +60,7 @@ public class SubjectGridAdpater extends BaseAbstractAdapter<Subject> {
                     break;
                 }
             }
+
         }
 
         if (!flag) {
