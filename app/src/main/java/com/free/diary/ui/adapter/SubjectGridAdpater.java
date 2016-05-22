@@ -36,6 +36,7 @@ public class SubjectGridAdpater extends BaseAbstractAdapter<Subject> {
             holder = new Holder();
             convertView = LayoutInflater.from(mContext).inflate(R.layout.griditem_subject, null);
             holder.tvSubject = (TextView) convertView.findViewById(R.id.tv_grid_subject);
+            holder.tvContent = (TextView) convertView.findViewById(R.id.tv_grid_content);
             convertView.setTag(holder);
         } else {
             holder = (Holder) convertView.getTag();
@@ -52,9 +53,8 @@ public class SubjectGridAdpater extends BaseAbstractAdapter<Subject> {
             for (Grid grid : mGridList) {
                 if (subject.getSubject().equals(grid.getSubject())) {
                     if (!TextUtils.isEmpty(grid.getContent())) {
-                        holder.tvSubject.setText(grid.getSubject()
-                                + "\n\n"
-                                + grid.getContent());
+                        holder.tvSubject.setText(grid.getSubject());
+                        holder.tvContent.setText(grid.getContent());
                         flag = true;
                     }
                     break;
@@ -65,10 +65,12 @@ public class SubjectGridAdpater extends BaseAbstractAdapter<Subject> {
         if (!flag) {
             holder.tvSubject.setText("");
             holder.tvSubject.setHint(subject.getSubject());
+            holder.tvContent.setText("");
         }
     }
 
     private class Holder {
         TextView tvSubject;
+        TextView tvContent;
     }
 }

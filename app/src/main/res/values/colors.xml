@@ -9,9 +9,9 @@
     <color name="white_press">#EBEBEB</color>
 
     <!--TextColor-->
-    <color name="text_black">#353535</color>
-    <color name="text_gray">#666666</color>
-    <color name="text_hint">#999999</color>
+    <color name="text_black">#333333</color>
+    <color name="text_gray">#606060</color>
+    <color name="text_hint">#BEBEBE</color>
 
     <!--Backgroud-->
     <color name="bg_line">#D9D9D9</color>

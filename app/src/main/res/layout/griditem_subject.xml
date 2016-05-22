@@ -5,14 +5,31 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <com.free.diary.ui.view.DynamicTextView
-        android:id="@+id/tv_grid_subject"
+    <com.free.diary.ui.view.DynamicLinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dip"
+        android:layout_height="wrap_content"
         android:background="@drawable/selector_bg_white"
+        android:orientation="vertical"
         android:padding="@dimen/padding_normal"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/text_gray"
         app:ratio="0.75">
-    </com.free.diary.ui.view.DynamicTextView>
+
+        <TextView
+            android:id="@+id/tv_grid_subject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_normal"
+            android:textColorHint="@color/text_hint">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_grid_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:textColor="@color/text_gray"
+            android:textColorHint="@color/text_gray"
+            android:textSize="@dimen/text_small">
+        </TextView>
+    </com.free.diary.ui.view.DynamicLinearLayout>
 </LinearLayout>

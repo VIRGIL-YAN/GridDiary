@@ -65,9 +65,15 @@
 >[Dagger2]()`Dagger2`<br/>
 
 ### 暂不使用
->[RetroLambda](https://github.com/evant/gradle-retrolambda)`表达式`<br/>
+>[RetroLambda](https://github.com/evant/gradle-retrolambda)~~`表达式`~~<br/>
 >[SmartTabLayout](https://github.com/ogaclejapan/SmartTabLayout)`标签页`<br/>
 >[Glide](https://github.com/bumptech/glide)`图片加载`<br/>
 >[Okhttp](https://github.com/square/okhttp)`网络请求`<br/>
 
+### 功能点
+* 阅读模式
+* 天气，心情
+* 启动页面
+* 主题选择及删除
+* 主色调选择器【低】
 
