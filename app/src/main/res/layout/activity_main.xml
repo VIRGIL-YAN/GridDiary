@@ -17,11 +17,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:layout_toLeftOf="@+id/iv_right"
+            android:layout_toLeftOf="@+id/iv_read_mode"
             android:gravity="center"
             android:text="@string/app_name"
             android:textColor="@color/white"
             android:textSize="@dimen/text_title"/>
+
+        <ImageView
+            android:id="@+id/iv_read_mode"
+            android:layout_width="@dimen/title_height"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/iv_right"
+            android:background="@drawable/selector_btn_transparent"
+            android:padding="@dimen/padding_large"
+            android:src="@mipmap/ic_read_mode"/>
 
         <ImageView
             android:id="@+id/iv_right"

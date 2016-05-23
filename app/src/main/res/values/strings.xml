@@ -17,6 +17,8 @@
     <string name="question_item_thanks"> 今天应该感谢什么？</string>
     <string name="question_item_tomorrow_better"> 我让明天更美好了吗？</string>
     <string name="question_item_cost"> 今天花了多少钱？</string>
+
+    <!--问题列表-->
     <string-array name="question_list">
         <item>@string/question_item_summary</item>
         <item>@string/question_item_happy</item>

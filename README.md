@@ -64,7 +64,7 @@
 >[MeterialCalendar](https://github.com/prolificinteractive/material-calendarview)`日历`<br/>
 >[Dagger2]()`Dagger2`<br/>
 
-### 暂不使用
+### 暂未使用
 >[RetroLambda](https://github.com/evant/gradle-retrolambda)~~`表达式`~~<br/>
 >[SmartTabLayout](https://github.com/ogaclejapan/SmartTabLayout)`标签页`<br/>
 >[Glide](https://github.com/bumptech/glide)`图片加载`<br/>
