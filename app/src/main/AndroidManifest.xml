@@ -12,13 +12,15 @@
         <activity
             android:name=".ui.activity.TestActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
 
         <activity
             android:name=".ui.activity.MainActivity"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -27,18 +29,26 @@
         </activity>
         <activity
             android:name=".ui.activity.GridEditActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
 
         <activity
-            android:name=".ui.activity.CalendarActivity"/>
+            android:name=".ui.activity.CalendarActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.activity.DiaryReadActivity"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".support.test.TestCalendarActivity"
-            android:label="日历"/>
+            android:label="日历"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".support.test.TestOrmActivity"
-            android:label="数据库"/>
+            android:label="数据库"
+            android:screenOrientation="portrait"/>
 
     </application>
 

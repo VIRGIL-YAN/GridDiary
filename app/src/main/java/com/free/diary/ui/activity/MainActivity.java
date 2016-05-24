@@ -18,6 +18,7 @@ import com.free.diary.model.bean.Subject;
 import com.free.diary.model.dao.DiaryDao;
 import com.free.diary.model.dao.GridDao;
 import com.free.diary.model.dao.SubjectDao;
+import com.free.diary.support.app.SubjectManager;
 import com.free.diary.support.config.KeyConfig;
 import com.free.diary.support.util.DateUtils;
 import com.free.diary.ui.adapter.SubjectGridAdpater;
@@ -52,13 +53,15 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
 
     @Override
     public void beforeInitView() {
-
+        SubjectManager subjectManager = new SubjectManager(MainActivity.this);
+        subjectManager.init();
     }
 
     @Override
     public void initView() {
         mTvMainDate = (TextView) findViewById(R.id.tv_title);
         findViewById(R.id.iv_right).setOnClickListener(this);
+        findViewById(R.id.iv_read_mode).setOnClickListener(this);
 
 
         mGridAdpater = new SubjectGridAdpater(this);
@@ -110,14 +113,22 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
 
     @Override
     public void onViewClick(View v) {
+        Intent intent = null;
         switch (v.getId()) {
             case R.id.iv_right:
-                Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
-                startActivity(intent);
+                intent = new Intent(MainActivity.this, CalendarActivity.class);
+                break;
+
+            case R.id.iv_read_mode:
+                intent = new Intent(MainActivity.this, DiaryReadActivity.class);
                 break;
 
             default:
                 break;
+        }
+
+        if (intent != null) {
+            startActivity(intent);
         }
     }
 
@@ -162,6 +173,7 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
                         }
                     }
 
+                    // 更新日记和格子数据
                     mDiary = mDiaryDao.query(mDiaryDate);
                     mGridList = mDiary.getGrids();
                     mGridAdpater.setGridList(mGridList);
