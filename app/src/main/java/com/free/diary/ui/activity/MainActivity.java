@@ -24,7 +24,9 @@ import com.free.diary.support.util.DateUtils;
 import com.free.diary.ui.adapter.SubjectGridAdpater;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -34,12 +36,13 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
 
     private static final int TIME_DIFF = 2000;
     private static final int REQUEST_CODE_GRID_EDIT = 1000;
-    private long mExitTime;
-    private String mDiaryDate = null;
 
     private TextView mTvMainDate;
     private GridView mGridMainSubject;
 
+    private long mExitTime;
+    private Date mDate;
+    private String mDiaryDate = null;
     private DiaryDao mDiaryDao;
     private Diary mDiary;
     private GridDao mGridDao;
@@ -60,9 +63,12 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
     @Override
     public void initView() {
         mTvMainDate = (TextView) findViewById(R.id.tv_title);
+        findViewById(R.id.iv_calendar).setOnClickListener(this);
+        findViewById(R.id.iv_left).setOnClickListener(this);
         findViewById(R.id.iv_right).setOnClickListener(this);
-        findViewById(R.id.iv_read_mode).setOnClickListener(this);
-
+        findViewById(R.id.iv_spanner).setOnClickListener(this);
+        findViewById(R.id.iv_bookmark).setOnClickListener(this);
+        findViewById(R.id.iv_more).setOnClickListener(this);
 
         mGridAdpater = new SubjectGridAdpater(this);
         mGridMainSubject = (GridView) findViewById(R.id.grid_main_subject);
@@ -75,15 +81,18 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
 
         String diaryDateStr = null;
         CalendarDay calendarDay = getIntent().getParcelableExtra(KeyConfig.CALENDAR_DAY);
+        Date newDate = (Date) getIntent().getSerializableExtra(KeyConfig.DATE);
 
-        if (calendarDay != null) {
-            Date date = calendarDay.getDate();
-            mDiaryDate = DateUtils.formatDate(date);
-            diaryDateStr = DateUtils.formatDateZh(date);
+        if (newDate != null) {
+            mDate = newDate;
+        } else if (calendarDay != null) {
+            mDate = calendarDay.getDate();
         } else {
-            mDiaryDate = DateUtils.formatDate(System.currentTimeMillis());
-            diaryDateStr = DateUtils.formatDateZh(System.currentTimeMillis());
+            mDate = new Date(System.currentTimeMillis());
+
         }
+        mDiaryDate = DateUtils.formatDate(mDate);
+        diaryDateStr = DateUtils.formatDateZh(mDate);
 
         mTvMainDate.setText(diaryDateStr);
         mGridDao = new GridDao(this);
@@ -115,11 +124,20 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
     public void onViewClick(View v) {
         Intent intent = null;
         switch (v.getId()) {
-            case R.id.iv_right:
+            case R.id.iv_calendar:
                 intent = new Intent(MainActivity.this, CalendarActivity.class);
+                intent.putExtra(KeyConfig.DATE, mDate);
                 break;
 
-            case R.id.iv_read_mode:
+            case R.id.iv_left:
+                changeDate(-1);
+                break;
+
+            case R.id.iv_right:
+                changeDate(+1);
+                break;
+
+            case R.id.iv_bookmark:
                 intent = new Intent(MainActivity.this, DiaryReadActivity.class);
                 break;
 
@@ -186,6 +204,16 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
     private void queryAll() {
         List<Diary> list = mDiaryDao.queryAll();
         Log.i("Test", "diary:" + list.toString());
+    }
+
+    private void changeDate(int change) {
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(mDate);
+        calendar.add(calendar.DATE, change);//把日期往后增加一天.整数往后推,负数往前移动
+        Date date = calendar.getTime();   //这个时间就是日期往后推一天的结果
+        intent.putExtra(KeyConfig.DATE, date);
+        startActivity(intent);
     }
 
     @Override

@@ -11,6 +11,8 @@ import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
+import java.util.Date;
+
 /**
  * Created by tangqi on 16/5/21.
  */
@@ -40,6 +42,11 @@ public class CalendarActivity extends BaseActivity {
                 finish();
             }
         });
+
+        Date date = (Date) getIntent().getSerializableExtra(KeyConfig.DATE);
+        if (date != null) {
+            calendarView.setSelectedDate(date);
+        }
     }
 
     @Override

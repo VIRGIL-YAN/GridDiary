@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/white"
-              android:fitsSystemWindows="true"
-              android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical">
 
 
     <RelativeLayout
-        android:layout_width="match_parent"
         android:id="@+id/rl_header"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/title_height"
         android:background="@color/colorPrimary">
 
@@ -18,47 +18,89 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:layout_toLeftOf="@+id/iv_read_mode"
             android:gravity="center"
             android:text="@string/app_name"
             android:textColor="@color/white"
             android:textSize="@dimen/text_title"/>
-
-        <ImageView
-            android:id="@+id/iv_read_mode"
-            android:layout_width="@dimen/title_height"
-            android:layout_height="match_parent"
-            android:layout_toLeftOf="@+id/iv_right"
-            android:background="@drawable/selector_btn_transparent"
-            android:padding="@dimen/padding_large"
-            android:src="@mipmap/ic_read_mode"/>
-
-        <ImageView
-            android:id="@+id/iv_right"
-            android:layout_width="@dimen/title_height"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/selector_btn_transparent"
-            android:padding="@dimen/padding_large"
-            android:src="@mipmap/ic_calendar"/>
     </RelativeLayout>
 
     <com.free.diary.ui.view.LineGridView
-        android:layout_below="@+id/rl_header"
         android:id="@+id/grid_main_subject"
-        android:layout_above="@+id/ll_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/view_line"
+        android:layout_below="@+id/rl_header"
         android:listSelector="@null"
         android:numColumns="2"
         android:scrollbars="none"/>
 
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/ll_toolbar"
+        android:background="@color/bg_line"/>
+
     <LinearLayout
         android:id="@+id/ll_toolbar"
         android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:layout_height="@dimen/title_height">
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_calendar"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_bg_white"
+            android:padding="@dimen/padding_image"
+            android:src="@mipmap/ic_calendar"/>
+
+        <ImageView
+            android:id="@+id/iv_left"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_bg_white"
+            android:padding="@dimen/padding_image"
+            android:src="@mipmap/ic_left"/>
+
+        <ImageView
+            android:id="@+id/iv_right"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_bg_white"
+            android:padding="@dimen/padding_image"
+            android:src="@mipmap/ic_right"/>
+
+        <ImageView
+            android:id="@+id/iv_spanner"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_bg_white"
+            android:padding="@dimen/padding_image"
+            android:src="@mipmap/ic_spanner"/>
+
+        <ImageView
+            android:id="@+id/iv_bookmark"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_bg_white"
+            android:padding="@dimen/padding_image"
+            android:src="@mipmap/ic_bookmark"/>
+
+        <ImageView
+            android:id="@+id/iv_more"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_bg_white"
+            android:padding="@dimen/padding_image"
+            android:src="@mipmap/ic_more"/>
 
     </LinearLayout>
 </RelativeLayout>
