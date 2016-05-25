@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@color/white"
@@ -9,6 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:id="@+id/rl_header"
         android:layout_height="@dimen/title_height"
         android:background="@color/colorPrimary">
 
@@ -43,10 +44,21 @@
     </RelativeLayout>
 
     <com.free.diary.ui.view.LineGridView
+        android:layout_below="@+id/rl_header"
         android:id="@+id/grid_main_subject"
+        android:layout_above="@+id/ll_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:listSelector="@null"
         android:numColumns="2"
         android:scrollbars="none"/>
-</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_toolbar"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_height="@dimen/title_height">
+
+    </LinearLayout>
+</RelativeLayout>
