@@ -58,6 +58,15 @@
             android:src="@mipmap/ic_calendar"/>
 
         <ImageView
+            android:id="@+id/iv_bookmark"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_bg_white"
+            android:padding="@dimen/padding_image"
+            android:src="@mipmap/ic_bookmark"/>
+
+        <ImageView
             android:id="@+id/iv_left"
             android:layout_width="0dip"
             android:layout_height="match_parent"
@@ -83,15 +92,6 @@
             android:background="@drawable/selector_bg_white"
             android:padding="@dimen/padding_image"
             android:src="@mipmap/ic_spanner"/>
-
-        <ImageView
-            android:id="@+id/iv_bookmark"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/selector_bg_white"
-            android:padding="@dimen/padding_image"
-            android:src="@mipmap/ic_bookmark"/>
 
         <ImageView
             android:id="@+id/iv_more"
