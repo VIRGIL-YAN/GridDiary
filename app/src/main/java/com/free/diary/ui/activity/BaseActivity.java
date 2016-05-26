@@ -10,6 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.free.diary.R;
+import com.free.diary.support.util.ActivityManager;
 import com.free.diary.ui.view.SystemBarTintManager;
 
 /**
@@ -50,6 +51,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActivityManager.addActivity(this);
 
         // 初始化系统状态栏
         if (isUseSystemBarTint()) {

@@ -20,6 +20,7 @@ import com.free.diary.model.dao.GridDao;
 import com.free.diary.model.dao.SubjectDao;
 import com.free.diary.support.app.SubjectManager;
 import com.free.diary.support.config.KeyConfig;
+import com.free.diary.support.util.ActivityManager;
 import com.free.diary.support.util.DateUtils;
 import com.free.diary.ui.adapter.SubjectGridAdpater;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
@@ -224,6 +225,7 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
                     Toast.makeText(MainActivity.this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
                     mExitTime = System.currentTimeMillis();
                 } else {
+                    ActivityManager.removeAllActivity();
                     System.exit(0);
                 }
                 return true;

@@ -16,8 +16,9 @@ import com.free.diary.model.bean.Grid;
 import com.free.diary.model.bean.Subject;
 import com.free.diary.model.dao.DiaryDao;
 import com.free.diary.model.dao.GridDao;
-import com.free.diary.model.dao.base.DatabaseHelper;
 import com.free.diary.model.dao.SubjectDao;
+import com.free.diary.model.dao.base.DatabaseHelper;
+import com.free.diary.support.util.ActivityManager;
 import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
@@ -26,7 +27,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import butterknife.ButterKnife;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -49,7 +49,7 @@ public class TestOrmActivity extends AppCompatActivity implements AdapterView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_activity_orm);
-        ButterKnife.bind(this);
+        ActivityManager.addActivity(this);
 
         ListView listView = (ListView) findViewById(R.id.lv_main);
         listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
