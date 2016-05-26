@@ -68,7 +68,7 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
         findViewById(R.id.iv_left).setOnClickListener(this);
         findViewById(R.id.iv_right).setOnClickListener(this);
         findViewById(R.id.iv_spanner).setOnClickListener(this);
-        findViewById(R.id.iv_bookmark).setOnClickListener(this);
+        findViewById(R.id.iv_readmode).setOnClickListener(this);
         findViewById(R.id.iv_more).setOnClickListener(this);
 
         mGridAdpater = new SubjectGridAdpater(this);
@@ -130,16 +130,18 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
                 intent.putExtra(KeyConfig.DATE, mDate);
                 break;
 
+            case R.id.iv_readmode:
+                intent = new Intent(MainActivity.this, DiaryReadActivity.class);
+                intent.putExtra(KeyConfig.DIARY, mDiary);
+                intent.putExtra(KeyConfig.DATE, mDate);
+                break;
+
             case R.id.iv_left:
                 changeDate(-1);
                 break;
 
             case R.id.iv_right:
                 changeDate(+1);
-                break;
-
-            case R.id.iv_bookmark:
-                intent = new Intent(MainActivity.this, DiaryReadActivity.class);
                 break;
 
             default:

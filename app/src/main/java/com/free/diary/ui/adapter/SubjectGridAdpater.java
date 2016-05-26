@@ -31,7 +31,7 @@ public class SubjectGridAdpater extends BaseAbstractAdapter<Subject> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
-        Holder holder = null;
+        Holder holder;
         if (convertView == null) {
             holder = new Holder();
             convertView = LayoutInflater.from(mContext).inflate(R.layout.griditem_subject, null);

@@ -46,6 +46,7 @@ public class CalendarActivity extends BaseActivity {
         Date date = (Date) getIntent().getSerializableExtra(KeyConfig.DATE);
         if (date != null) {
             calendarView.setSelectedDate(date);
+            calendarView.setSelectionMode(MaterialCalendarView.SELECTION_MODE_MULTIPLE);
         }
     }
 
