@@ -25,6 +25,7 @@ import com.free.diary.support.util.DateUtils;
 import com.free.diary.ui.adapter.SubjectGridAdpater;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -47,7 +48,7 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
     private DiaryDao mDiaryDao;
     private Diary mDiary;
     private GridDao mGridDao;
-    private List<Grid> mGridList;
+    private ArrayList<Grid> mGridList;
     private SubjectGridAdpater mGridAdpater;
 
     @Override
@@ -134,6 +135,7 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
                 intent = new Intent(MainActivity.this, DiaryReadActivity.class);
                 intent.putExtra(KeyConfig.DIARY, mDiary);
                 intent.putExtra(KeyConfig.DATE, mDate);
+                intent.putExtra(KeyConfig.GRID, mGridList);
                 break;
 
             case R.id.iv_left:

@@ -11,6 +11,7 @@
         android:id="@+id/lv_grid_read"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:divider="@null"
         android:paddingLeft="@dimen/padding_large"
         android:paddingRight="@dimen/padding_large"
         android:scrollbars="none">
