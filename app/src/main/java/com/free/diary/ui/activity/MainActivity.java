@@ -110,6 +110,7 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
         List<Subject> subjects = subjectDao.queryAll();
         mGridAdpater.setItems(subjects);
         mGridAdpater.setGridList(mGridList);
+        mGridMainSubject.smoothScrollToPosition(0);
 
         queryAll();
     }
